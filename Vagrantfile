@@ -68,5 +68,16 @@ Vagrant.configure(2) do |config|
   #   sudo apt-get update
   #   sudo apt-get install -y apache2
   # SHELL
-  config.vm.provision "shell", path: "provision-shell/bootstrap.sh"
+  # config.vm.provision "shell", path: "provision-shell/bootstrap.sh"
+  config.vm.provision "fix-no-tty", type: "shell" do |s|
+    # Specifies whether to execute the shell script as a privileged user or not (sudo)
+    s.privileged = false
+
+    # Path to a shell script to upload and execute
+    s.path = "provision-shell/bootstrap.sh"
+
+    # This value will be displayed in the output so that identification by the user is easier
+    # when many shell provisioners are present
+    s.name = "liviubalan_com"
+  end
 end
