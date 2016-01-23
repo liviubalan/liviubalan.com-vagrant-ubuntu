@@ -43,13 +43,17 @@ Vagrant.configure(2) do |config|
   # backing providers for Vagrant. These expose provider-specific options.
   # Example for VirtualBox:
   #
-  # config.vm.provider "virtualbox" do |vb|
+  config.vm.provider "virtualbox" do |vb|
   #   # Display the VirtualBox GUI when booting the machine
   #   vb.gui = true
   #
   #   # Customize the amount of memory on the VM:
   #   vb.memory = "1024"
-  # end
+
+    # Customize the name that appears in the VirtualBox GUI
+    # See: Oracle VM VirtualBox Manager
+    vb.name = "liviubalan.com-vagrant-ubuntu"
+  end
   #
   # View the documentation for the provider you are using for more
   # information on available options.
@@ -69,7 +73,9 @@ Vagrant.configure(2) do |config|
   #   sudo apt-get install -y apache2
   # SHELL
   # config.vm.provision "shell", path: "provision-shell/bootstrap.sh"
-  config.vm.provision "fix-no-tty", type: "shell" do |s|
+  # Set provisioner name to "liviubalan.com-provisioner"
+  # Vagrant CLI: ==> default: Running provisioner: liviubalan.com-provisioner (shell)...
+  config.vm.provision "liviubalan.com-provisioner", type: "shell" do |s|
     # Specifies whether to execute the shell script as a privileged user or not (sudo)
     s.privileged = false
 
@@ -78,6 +84,17 @@ Vagrant.configure(2) do |config|
 
     # This value will be displayed in the output so that identification by the user is easier
     # when many shell provisioners are present
-    s.name = "liviubalan_com"
+    # Vagrant CLI: default: Running: script: liviubalan.com-script
+    s.name = "liviubalan.com-script"
   end
+
+  # This is used to define a VM in a multi-VM environment
+  # Vagrant CLI: Bringing machine 'liviubalan.com-VM' up with 'virtualbox' provider...
+  # See: vagrant status
+  config.vm.define "liviubalan.com-VM" do |http|
+  end
+
+  # The hostname the machine should have
+  # See: vagrant ssh
+  config.vm.hostname = "UbuntuVM"
 end
