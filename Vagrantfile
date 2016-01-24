@@ -72,7 +72,6 @@ Vagrant.configure(2) do |config|
   #   sudo apt-get update
   #   sudo apt-get install -y apache2
   # SHELL
-  # config.vm.provision "shell", path: "provision-shell/bootstrap.sh"
   # Set provisioner name to "liviubalan.com-provisioner"
   # Vagrant CLI: ==> default: Running provisioner: liviubalan.com-provisioner (shell)...
   config.vm.provision "liviubalan.com-provisioner", type: "shell" do |s|
