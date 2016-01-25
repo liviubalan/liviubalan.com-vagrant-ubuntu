@@ -12,7 +12,7 @@ LIV_COLOR_WARNING='\e[33m'
 LIV_COLOR_DANGER='\e[31m'
 
 # Tutorials
-LIV_TUT_NO=12
+LIV_TUT_NO=13
 LIV_TUT_SECTION_NO='Setup for Tutorial '
 LIV_TUT_SECTION_URL='More info on '
 LIV_TUT_FILE_INFO='info.sh'
