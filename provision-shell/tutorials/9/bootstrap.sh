@@ -1,1 +1,1 @@
-sudo apt-get install vim > /dev/null 2>&1
+sudo apt-get -y install vim > /dev/null 2>&1
