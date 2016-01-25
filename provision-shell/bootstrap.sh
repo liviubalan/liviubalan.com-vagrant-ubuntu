@@ -26,12 +26,17 @@ LC_ALL=
 # For more info see http://www.liviubalan.com/ubuntu-server-locales
 sudo locale-gen en_US.UTF-8
 
-# Do not allow client to pass locale environment variables
+# Do not allow client to pass locale environment variables through SSH
 # For more info see http://www.liviubalan.com/vagrant-repair-setting-locale-failed-message-on-ubuntutrusty32
 sudo sed -i "s/^AcceptEnv LANG LC/#AcceptEnv LANG LC/g" /etc/ssh/sshd_config
 
 # Restart SSH service
 sudo service ssh restart
+
+# Change timezone to "Europe/Bucharest" according to http://www.liviubalan.com/install-ubuntu-14-04-lts-server-on-virtualbox
+# For more info see http://www.liviubalan.com/ubuntu-server-change-and-overview-timezone
+sudo bash -c 'echo "Europe/Bucharest" > /etc/timezone'
+sudo dpkg-reconfigure -f noninteractive tzdata
 
 # In order to avoid the message
 # "==> default: dpkg-preconfigure: unable to re-open stdin: No such file or directory"
