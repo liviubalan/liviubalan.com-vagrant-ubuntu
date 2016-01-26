@@ -7,7 +7,7 @@ source "$LIV_DIR_RES/functions.sh"
 
 for (( LIV_I=0; LIV_I<=$LIV_TUT_NO; LIV_I++ )) do
     if [ "$LIV_I" -eq "0" ]; then
-        LIV_DIR_SCRIPT_CUR=$(liv_tutorial_path 'before')
+        LIV_DIR_SCRIPT_CUR=$(liv_tutorial_path 'begin')
     else
         LIV_DIR_SCRIPT_CUR=$(liv_tutorial_path "$LIV_I")
     fi
