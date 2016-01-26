@@ -37,7 +37,16 @@ LIV_TUT_SECTION_NO='Setup for Tutorial '
 LIV_TUT_SECTION_URL='More info on '
 
 # Tutorial provision meta shell script
-LIV_TUT_FILE_META='meta.sh'
+LIV_TUT_SH_META='meta.sh'
 
-# Tutorial provision bootstrap shell script
-LIV_TUT_FILE_BOOT='bootstrap.sh'
+# Provision shell script that will be run at the beginning of the tutorial
+# This section includes necessary initialization in order to be able to follow the tutorial
+LIV_TUT_SH_BEGIN='begin.sh'
+
+# Provision shell script that will be run at the end of the tutorial
+# This is the result of the current tutorial
+LIV_TUT_SH_END='end.sh'
+
+# Run $LIV_TUT_SH_END provision shell script above for the last tutorial
+# This will apply if your current tutorial number is $LIV_TUT_NO (the last one)
+LIV_TUT_SH_END_LAST=1

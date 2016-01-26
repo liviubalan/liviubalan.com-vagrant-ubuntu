@@ -13,17 +13,25 @@ for (( LIV_I=0; LIV_I<=$LIV_TUT_NO; LIV_I++ )) do
     fi
 
     if [ -d "$LIV_DIR_SCRIPT_CUR" ]; then
-        # Display data from info script
-        LIV_TUT_INFO_PATH="$LIV_DIR_SCRIPT_CUR/$LIV_TUT_FILE_META"
+        # Display meta data
+        LIV_TUT_INFO_PATH="$LIV_DIR_SCRIPT_CUR/$LIV_TUT_SH_META"
         if [ -e "$LIV_TUT_INFO_PATH" ]; then
             source "$LIV_TUT_INFO_PATH"
             liv_print_section "$LIV_I" "$LIV_TUT_INFO_URL"
         fi
 
-        # Load bootstrap script
-        LIV_TUT_BOOT="$LIV_DIR_SCRIPT_CUR/$LIV_TUT_FILE_BOOT"
-        if [ -e "$LIV_TUT_BOOT" ]; then
-            source "$LIV_TUT_BOOT"
+        # Load tutorial provision shell script (begin)
+        # This script is always loaded because a working environment is needed
+        LIV_TUT_SH="$LIV_DIR_SCRIPT_CUR/$LIV_TUT_SH_BEGIN"
+        if [ -e "$LIV_TUT_SH" ]; then
+            source "$LIV_TUT_SH"
+        fi
+
+        # Load tutorial provision shell script (end)
+        # This script is loaded if the tutorial is not the last one or is the last one and LIV_TUT_SH_END_LAST=1
+        LIV_TUT_SH="$LIV_DIR_SCRIPT_CUR/$LIV_TUT_SH_END"
+        if [ -e "$LIV_TUT_SH" ] && ([ "$LIV_I" -lt "$LIV_TUT_NO" ] || ([ "$LIV_I" -eq "$LIV_TUT_NO" ] && [ "$LIV_TUT_SH_END_LAST" -eq "1" ])); then
+            source "$LIV_TUT_SH"
         fi
     fi
 done
