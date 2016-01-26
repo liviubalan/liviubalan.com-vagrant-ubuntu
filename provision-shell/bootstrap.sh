@@ -14,7 +14,7 @@ for (( LIV_I=0; LIV_I<=$LIV_TUT_NO; LIV_I++ )) do
 
     if [ -d "$LIV_DIR_SCRIPT_CUR" ]; then
         # Display data from info script
-        LIV_TUT_INFO_PATH="$LIV_DIR_SCRIPT_CUR/$LIV_TUT_FILE_INFO"
+        LIV_TUT_INFO_PATH="$LIV_DIR_SCRIPT_CUR/$LIV_TUT_FILE_META"
         if [ -e "$LIV_TUT_INFO_PATH" ]; then
             source "$LIV_TUT_INFO_PATH"
             liv_print_section "$LIV_I" "$LIV_TUT_INFO_URL"

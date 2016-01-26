@@ -36,8 +36,8 @@ LIV_TUT_SECTION_NO='Setup for Tutorial '
 # Section provision tutorial info message
 LIV_TUT_SECTION_URL='More info on '
 
-# Tutorial provision info shell script
-LIV_TUT_FILE_INFO='info.sh'
+# Tutorial provision meta shell script
+LIV_TUT_FILE_META='meta.sh'
 
 # Tutorial provision bootstrap shell script
 LIV_TUT_FILE_BOOT='bootstrap.sh'
