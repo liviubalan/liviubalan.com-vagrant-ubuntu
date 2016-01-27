@@ -5,10 +5,14 @@ LIV_DIR="/vagrant/provision-shell"
 source "$LIV_DIR/resources/var.sh"
 source "$LIV_DIR_RES/functions.sh"
 
-for (( LIV_I=0; LIV_I<=$LIV_TUT_NO; LIV_I++ )) do
+LIV_N=$(($LIV_TUT_NO+1))
+for (( LIV_I=0; LIV_I<=$LIV_N; LIV_I++ )) do
     if [ "$LIV_I" -eq "0" ]; then
         # Init provision shell script (begin)
         LIV_DIR_SCRIPT_CUR=$(liv_tutorial_path "$LIV_TUT_DIR_BEGIN")
+    elif [ "$LIV_I" -eq "$LIV_N" ]; then
+        # Cleanup provision shell script (end)
+        LIV_DIR_SCRIPT_CUR=$(liv_tutorial_path "$LIV_TUT_DIR_END")
     else
         # Tutorial provision shell script
         LIV_DIR_SCRIPT_CUR=$(liv_tutorial_path "$LIV_I")

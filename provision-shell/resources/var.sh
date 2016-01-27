@@ -36,20 +36,20 @@ LIV_TUT_SECTION_NO='Setup for Tutorial '
 # Section provision tutorial info message
 LIV_TUT_SECTION_URL='More info on '
 
-# Directory where are stored the provision init shell scripts that will be run before any tutorial
+# Directory where are stored the provision init shell scripts that is run before any tutorial
 LIV_TUT_DIR_BEGIN='begin'
 
-# Directory where are stored the provision cleanup shell scripts that will be run after all the tutorials
+# Directory where are stored the provision cleanup shell scripts that is run after all the tutorials
 LIV_TUT_DIR_END='end'
 
 # Tutorial provision meta shell script
 LIV_TUT_SH_META='meta.sh'
 
-# Provision shell script that will be run at the beginning of the tutorial
+# Provision shell script that is run at the beginning of the tutorial
 # This section includes necessary initialization in order to be able to follow the tutorial
 LIV_TUT_SH_BEGIN='begin.sh'
 
-# Provision shell script that will be run at the end of the tutorial
+# Provision shell script that is run at the end of the tutorial
 # This is the result of the current tutorial
 LIV_TUT_SH_END='end.sh'
 
