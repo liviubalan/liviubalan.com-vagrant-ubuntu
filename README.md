@@ -12,3 +12,9 @@ for more details.
 * [Vagrant](https://www.vagrantup.com/). Checkout
 [Vagrant Install on Linux Mint/Ubuntu Desktop](http://www.liviubalan.com/vagrant-install-on-linux-mintubuntu-desktop)
 for more details.
+
+## Shared Folders
+In order to access files on your host machine from your guest virtual machine all you need to do is to access the
+"share" directory located on the root of the project. Because this project is based on Vagrant, by default, all you
+put inside of your project directory (the directory with the Vagrantfile) from the host machine will be shared to
+"/vagrant" directory from the guest virtual machine.
