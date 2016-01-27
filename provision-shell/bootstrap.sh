@@ -63,12 +63,12 @@ for (( LIV_I=0; LIV_I<=$LIV_N; LIV_I++ )) do
             if [ -e "$LIV_TUT_SH_END_I" ] && ([ "$LIV_I" -lt "$LIV_TUT_NO" ] || ([ "$LIV_I" -eq "$LIV_TUT_NO" ] && [ "$LIV_TUT_SH_END_LAST" -eq '1' ])); then
                 source "$LIV_TUT_SH_END_I"
             fi
-
-            # Unset current tutorial meta variables
-            LIV_TUT_META_URL=''
-            LIV_TUT_META_DESCR=''
         else
             liv_print_warning "$LIV_TUT_SH_NONE"
         fi
+
+        # Unset current tutorial meta variables
+        LIV_TUT_META_URL=''
+        LIV_TUT_META_DESCR=''
     fi
 done
