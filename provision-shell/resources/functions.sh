@@ -1,6 +1,6 @@
 # General functions
 
-# Print with color and return to default foreground color
+# Print with color and return to the default config foreground color
 # $1 = Message
 # $2 = Color. Default to $LIV_COLOR_DEFAULT
 function liv_print_color {
@@ -46,10 +46,10 @@ function liv_print_danger {
 }
 
 # Print section message
-# $1 = Message
+# $1 = Tutorial number
 function liv_print_section {
-    echo -e "$LIV_COLOR_INFO$LIV_TUT_SECTION_NO$LIV_COLOR_DANGER#$1
-$LIV_COLOR_INFO$LIV_TUT_SECTION_URL$LIV_COLOR_DANGER$2$LIV_COLOR_DEFAULT\n"
+    echo -e "$LIV_COLOR_INFO$LIV_TUT_SECTION_NO$LIV_COLOR_DANGER#$1"
+    echo -e "$LIV_COLOR_INFO$LIV_TUT_SECTION_URL$LIV_COLOR_DANGER$2$LIV_COLOR_DEFAULT"
 }
 
 # Check if a string is integer
@@ -75,8 +75,11 @@ function liv_smallest_multiple {
     echo "$LIV_I"
 }
 
-# Get tutorial path
-# $1 = Tutorial number
+# Get tutorial path.
+# This current file system structure is used in order to avoid sorting problems.
+# Currently a 3 digits format is used. If you want to increase the number of digits all you have to do is to
+# change the 2nd param for liv_smallest_multiple function and the 1st param for printf function used below.
+# $1 = Tutorial number / directory name
 function liv_tutorial_path {
     local LIV_PATH_CUR="$LIV_DIR_TUT"
     local LIV_TMP_CUR=''
@@ -84,7 +87,7 @@ function liv_tutorial_path {
     if [ $(liv_is_int "$1") = true ]; then
         LIV_TMP_CUR=$(liv_smallest_multiple $1 100)
         LIV_PATH_CUR="$LIV_PATH_CUR/$LIV_TMP_CUR"
-        LIV_TMP_CUR=$(printf "%03d" $1)
+        LIV_TMP_CUR=$(printf '%03d' $1)
         LIV_PATH_CUR="$LIV_PATH_CUR/$LIV_TMP_CUR"
     else
         LIV_PATH_CUR="$LIV_PATH_CUR/$1"

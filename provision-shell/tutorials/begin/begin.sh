@@ -34,7 +34,7 @@ sudo locale-gen en_US.UTF-8 > /dev/null 2>&1
 
 # Do not allow client to pass locale environment variables through SSH
 # For more info see http://www.liviubalan.com/vagrant-repair-setting-locale-failed-message-on-ubuntutrusty32
-sudo sed -i "s/^AcceptEnv LANG LC/#AcceptEnv LANG LC/g" /etc/ssh/sshd_config
+sudo sed -i 's/^AcceptEnv LANG LC/#AcceptEnv LANG LC/g' /etc/ssh/sshd_config
 
 # Change timezone to "Europe/Bucharest" according to http://www.liviubalan.com/install-ubuntu-14-04-lts-server-on-virtualbox
 # For more info see http://www.liviubalan.com/ubuntu-server-change-and-overview-timezone
