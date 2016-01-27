@@ -1,4 +1,5 @@
-echo 'Provisioning virtual machine...'
+# This shell script is run before any tutorial
+# Here is the init part
 
 # Repair "==> default: stdin: is not a tty" message
 # For more info see http://www.liviubalan.com/vagrant-repair-default-stdin-is-not-a-tty-message
@@ -35,12 +36,11 @@ sudo locale-gen en_US.UTF-8 > /dev/null 2>&1
 # For more info see http://www.liviubalan.com/vagrant-repair-setting-locale-failed-message-on-ubuntutrusty32
 sudo sed -i "s/^AcceptEnv LANG LC/#AcceptEnv LANG LC/g" /etc/ssh/sshd_config
 
-# Restart SSH service
-sudo service ssh restart > /dev/null 2>&1
-
 # Change timezone to "Europe/Bucharest" according to http://www.liviubalan.com/install-ubuntu-14-04-lts-server-on-virtualbox
 # For more info see http://www.liviubalan.com/ubuntu-server-change-and-overview-timezone
 sudo bash -c 'echo "Europe/Bucharest" > /etc/timezone'
 sudo dpkg-reconfigure -f noninteractive tzdata > /dev/null 2>&1
 
+# Downloads the package lists from the repositories and "updates" them to get information on the newest
+# versions of packages and their dependencies
 sudo apt-get -qq update

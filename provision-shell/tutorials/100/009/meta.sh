@@ -1,1 +1,1 @@
-LIV_TUT_INFO_URL='http://www.liviubalan.com/install-vim-on-ubuntu'
+LIV_TUT_META_URL='http://www.liviubalan.com/install-vim-on-ubuntu'

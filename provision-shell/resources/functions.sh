@@ -10,6 +10,7 @@ function liv_print_color {
         if [ "$#" -gt 1 ]; then
             LIV_COLOR_CUR=$2
         fi
+
         echo -e "$LIV_COLOR_CUR$1$LIV_COLOR_DEFAULT"
     fi
 }

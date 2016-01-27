@@ -20,10 +20,17 @@ for (( LIV_I=0; LIV_I<=$LIV_N; LIV_I++ )) do
 
     if [ -d "$LIV_DIR_SCRIPT_CUR" ]; then
         # Display meta data
-        LIV_TUT_INFO_PATH="$LIV_DIR_SCRIPT_CUR/$LIV_TUT_SH_META"
-        if [ -e "$LIV_TUT_INFO_PATH" ]; then
-            source "$LIV_TUT_INFO_PATH"
-            liv_print_section "$LIV_I" "$LIV_TUT_INFO_URL"
+        LIV_TUT_META_PATH="$LIV_DIR_SCRIPT_CUR/$LIV_TUT_SH_META"
+        if [ -e "$LIV_TUT_META_PATH" ]; then
+            source "$LIV_TUT_META_PATH"
+
+            if [ ${#LIV_TUT_META_URL} -gt "0" ]; then
+                liv_print_section "$LIV_I" "$LIV_TUT_META_URL"
+            fi
+
+            if [ ${#LIV_TUT_META_DESCR} -gt "0" ]; then
+                liv_print_warning "$LIV_TUT_META_DESCR"
+            fi
         fi
 
         # Load tutorial provision shell script (begin)
@@ -39,5 +46,9 @@ for (( LIV_I=0; LIV_I<=$LIV_N; LIV_I++ )) do
         if [ -e "$LIV_TUT_SH" ] && ([ "$LIV_I" -lt "$LIV_TUT_NO" ] || ([ "$LIV_I" -eq "$LIV_TUT_NO" ] && [ "$LIV_TUT_SH_END_LAST" -eq "1" ])); then
             source "$LIV_TUT_SH"
         fi
+
+        # Unset current tutorial meta variables
+        LIV_TUT_META_URL=''
+        LIV_TUT_META_DESCR=''
     fi
 done
