@@ -7,8 +7,10 @@ source "$LIV_DIR_RES/functions.sh"
 
 for (( LIV_I=0; LIV_I<=$LIV_TUT_NO; LIV_I++ )) do
     if [ "$LIV_I" -eq "0" ]; then
-        LIV_DIR_SCRIPT_CUR=$(liv_tutorial_path 'begin')
+        # Init provision shell script (begin)
+        LIV_DIR_SCRIPT_CUR=$(liv_tutorial_path "$LIV_TUT_DIR_BEGIN")
     else
+        # Tutorial provision shell script
         LIV_DIR_SCRIPT_CUR=$(liv_tutorial_path "$LIV_I")
     fi
 
