@@ -47,7 +47,7 @@ LIV_COLOR_DANGER='\e[31m'
 # vagrant destroy -f
 # vagrant up --provider virtualbox
 # For more info see http://www.liviubalan.com/vagrant-provision-command
-LIV_TUT_NO=13
+LIV_TUT_NO=14
 
 # Section provision tutorial message setup
 LIV_TUT_SECTION_NO='Setup for Tutorial '
