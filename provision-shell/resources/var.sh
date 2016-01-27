@@ -72,6 +72,9 @@ LIV_TUT_SH_BEGIN='begin.sh'
 # This is the result of the current tutorial
 LIV_TUT_SH_END='end.sh'
 
+# Message shown when no provision shell script is specified for the current tutorial
+LIV_TUT_SH_NONE='No provision shell script specified for this tutorial'
+
 # Run $LIV_TUT_SH_END provision shell script above for the last tutorial.
 # This will apply if your current tutorial number is $LIV_TUT_NO (the last one).
 # Possible values: 0, 1

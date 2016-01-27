@@ -45,26 +45,30 @@ for (( LIV_I=0; LIV_I<=$LIV_N; LIV_I++ )) do
             fi
 
             if [ ${#LIV_TUT_META_DESCR} -gt '0' ]; then
-                liv_print_warning "$LIV_TUT_META_DESCR"
+                liv_print_default "$LIV_TUT_META_DESCR"
             fi
         fi
 
-        # Load tutorial provision shell script (begin)
-        # This script is always loaded because a working environment is needed
-        LIV_TUT_SH="$LIV_DIR_SCRIPT_CUR/$LIV_TUT_SH_BEGIN"
-        if [ -e "$LIV_TUT_SH" ]; then
-            source "$LIV_TUT_SH"
-        fi
+        LIV_TUT_SH_BEGIN_I="$LIV_DIR_SCRIPT_CUR/$LIV_TUT_SH_BEGIN"
+        LIV_TUT_SH_END_I="$LIV_DIR_SCRIPT_CUR/$LIV_TUT_SH_END"
+        if [ -e "$LIV_TUT_SH_BEGIN_I" ] || [ -e "$LIV_TUT_SH_END_I" ]; then
+            # Load tutorial provision shell script (begin)
+            # This script is always loaded because a working environment is needed
+            if [ -e "$LIV_TUT_SH_BEGIN_I" ]; then
+                source "$LIV_TUT_SH_BEGIN_I"
+            fi
 
-        # Load tutorial provision shell script (end)
-        # This script is loaded if the tutorial is not the last one or is the last one and LIV_TUT_SH_END_LAST=1
-        LIV_TUT_SH="$LIV_DIR_SCRIPT_CUR/$LIV_TUT_SH_END"
-        if [ -e "$LIV_TUT_SH" ] && ([ "$LIV_I" -lt "$LIV_TUT_NO" ] || ([ "$LIV_I" -eq "$LIV_TUT_NO" ] && [ "$LIV_TUT_SH_END_LAST" -eq '1' ])); then
-            source "$LIV_TUT_SH"
-        fi
+            # Load tutorial provision shell script (end)
+            # This script is loaded if the tutorial is not the last one or is the last one and LIV_TUT_SH_END_LAST=1
+            if [ -e "$LIV_TUT_SH_END_I" ] && ([ "$LIV_I" -lt "$LIV_TUT_NO" ] || ([ "$LIV_I" -eq "$LIV_TUT_NO" ] && [ "$LIV_TUT_SH_END_LAST" -eq '1' ])); then
+                source "$LIV_TUT_SH_END_I"
+            fi
 
-        # Unset current tutorial meta variables
-        LIV_TUT_META_URL=''
-        LIV_TUT_META_DESCR=''
+            # Unset current tutorial meta variables
+            LIV_TUT_META_URL=''
+            LIV_TUT_META_DESCR=''
+        else
+            liv_print_warning "$LIV_TUT_SH_NONE"
+        fi
     fi
 done
