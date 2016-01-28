@@ -14,6 +14,11 @@ LIV_DIR_RES="$LIV_DIR_PROVISION/resources"
 # Tutorials directory absolute path
 LIV_DIR_TUT="$LIV_DIR_PROVISION/tutorials"
 
+# Shared directory absolute path.
+# The content of this directory will be used for things like Apache2 DocumentRoot and will ensure the communication
+# between the host machine with the guest virtual machine
+LIV_DIR_SHR="$LIV_DIR_ROOT/share"
+
 # Colors
 
 # Default message color
