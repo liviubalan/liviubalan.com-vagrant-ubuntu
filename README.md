@@ -56,17 +56,6 @@ follow this steps:
  vagrant ssh
  ```
 
-## Shared Folders
-
-In order to access files on your host machine from your guest virtual machine all you need to do is to access the
-`share` directory located on the root of the project. Because this project is based on Vagrant, by default, all you
-put inside of your project directory (the directory with the `Vagrantfile`) from the host machine, will be shared to
-`/vagrant` directory from the guest virtual machine.
-
-**Remember that if you set `LIV_TUT_NO_BEGIN_SHR_CLEAN=1` (the default value), the init provision shell script will
-delete all the files inside the shared directory. This is done in order to avoid filesystem conflicts. Read the
-comments inside `provision-shell/resources/var.sh` for more details.**
-
 ## Configuration
 
 Most the configuration settings that you want to modify are placed on
@@ -89,6 +78,17 @@ file.
 
 In order to change the values for `Vagrantfile` check the
 [Vagrantfile documentation](https://www.vagrantup.com/docs/vagrantfile/).
+
+## Shared Folders
+
+In order to access files on your host machine from your guest virtual machine all you need to do is to access the
+`share` directory located on the root of the project. Because this project is based on Vagrant, by default, all you
+put inside of your project directory (the directory with the `Vagrantfile`) from the host machine, will be shared to
+`/vagrant` directory from the guest virtual machine.
+
+**Remember that if you set `LIV_TUT_NO_BEGIN_SHR_CLEAN=1` (the default value), the init provision shell script will
+delete all the files inside the shared directory. This is done in order to avoid filesystem conflicts. Read the
+comments inside `provision-shell/resources/var.sh` for more details.**
 
 Thank you for cloning!  
 Bye bye!
