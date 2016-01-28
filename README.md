@@ -94,7 +94,7 @@ comments inside `provision-shell/resources/var.sh` for more details.**
 
 One of the cool parts of this project is that you can use incremental development in order to follow the tutorials in a
 fixed order. The tutorials from [www.liviubalan.com](http://www.liviubalan.com/) are numbered starting from "1" and
-correspond to the # title part. In order to use incremental development most of the time all you have to do is to
+correspond to the # title part. In order to use incremental development, most of the time all you have to do is to
 change the **LIV_TUT_NO_START** and **LIV_TUT_NO_STOP** configuration options above and after this you will have 2
 options:
 
@@ -107,12 +107,20 @@ machine (more info on [Vagrant destroy command](http://www.liviubalan.com/vagran
  vagrant up --provider virtualbox
  ```
 
+ This approach is especially useful if you're new to Vagrant or you want to avoid any potential decremental development
+ problems.
+
 2. Run the configured shell provisioner (more info on
 [Vagrant provision command](http://www.liviubalan.com/vagrant-provision-command)):
 
  ```bash
  vagrant provision
  ```
+
+ You can decrease the provision loading time by using this command and also you can make more teaks by changing the
+ **LIV_TUT_NO_BEGIN**, **LIV_TUT_NO_END**, **LIV_TUT_NO_BEGIN_SHR_CLEAN** and **LIV_TUT_SH_END_LAST** configuration
+ options above. But remember that you can get in some troubles if you're using decremental development. For more info
+ check [Vagrant provision command](http://www.liviubalan.com/vagrant-provision-command).
 
 Thank you for cloning!  
 Bye bye!
