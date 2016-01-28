@@ -90,5 +90,29 @@ put inside of your project directory (the directory with the `Vagrantfile`) from
 delete all the files inside the shared directory. This is done in order to avoid filesystem conflicts. Read the
 comments inside `provision-shell/resources/var.sh` for more details.**
 
+## Incremental Development
+
+One of the cool parts of this project is that you can use incremental development in order to follow the tutorials in a
+fixed order. The tutorials from [www.liviubalan.com](http://www.liviubalan.com/) are numbered starting from "1" and
+correspond to the # title part. In order to use incremental development most of the time all you have to do is to
+change the **LIV_TUT_NO_START** and **LIV_TUT_NO_STOP** configuration options above and after this you will have 2
+options:
+
+1. Destroy all the resources associated with current Vagrant project and recreate and reconfigure the VirtualBox guest
+machine (more info on [Vagrant destroy command](http://www.liviubalan.com/vagrant-destroy-command) and
+[Vagrant Install ubuntu-precise32 and ubuntu-trusty32 on Linux Mint/Ubuntu Desktop](http://www.liviubalan.com/vagrant-install-ubuntu-precise32-and-ubuntu-trusty32-on-linux-mintubuntu-desktop)):
+
+ ```bash
+ vagrant destroy -f
+ vagrant up --provider virtualbox
+ ```
+
+2. Run the configured shell provisioner (more info on
+[Vagrant provision command](http://www.liviubalan.com/vagrant-provision-command)):
+
+ ```bash
+ vagrant provision
+ ```
+
 Thank you for cloning!  
 Bye bye!
