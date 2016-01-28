@@ -9,10 +9,10 @@
 # Paths
 
 # Resources directory absolute path
-LIV_DIR_RES="$LIV_DIR/resources"
+LIV_DIR_RES="$LIV_DIR_PROVISION/resources"
 
 # Tutorials directory absolute path
-LIV_DIR_TUT="$LIV_DIR/tutorials"
+LIV_DIR_TUT="$LIV_DIR_PROVISION/tutorials"
 
 # Colors
 

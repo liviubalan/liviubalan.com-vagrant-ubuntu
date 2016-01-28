@@ -12,12 +12,15 @@
 # Include resources
 
 # By default, Vagrant will share your project directory (the directory with the Vagrantfile) to /vagrant.
-# If you want to run this script using another shared directory or you want to run it to another environment than
-# Vagrant change the value for LIV_DIR to an absolute path to your provision-shell directory.
+# If you want to run this script using another shared directory or you want to run it to other environment than Vagrant
+# change this value to an absolute path directory.
 # For more info see http://www.liviubalan.com/vagrant-synced-folders
-LIV_DIR='/vagrant/provision-shell'
+LIV_DIR_ROOT='/vagrant'
 
-source "$LIV_DIR/resources/var.sh"
+# Provision shell directory absolute path
+LIV_DIR_PROVISION="$LIV_DIR_ROOT/provision-shell"
+
+source "$LIV_DIR_PROVISION/resources/var.sh"
 source "$LIV_DIR_RES/functions.sh"
 
 # Run the init, tutorial and cleanup scripts based on the configuration values
