@@ -1,6 +1,9 @@
 # liviubalan.com-vagrant-ubuntu
-Vagrant configuration and provision shell scripts for [www.liviubalan.com](http://www.liviubalan.com/), based on
-Ubuntu Server.
+
+Hello,
+
+I'm [Liviu Balan](http://www.liviubalan.com/) and here are the Vagrant configuration and provision shell scripts for
+[www.liviubalan.com](http://www.liviubalan.com/), based on Ubuntu Server.
 
 ## Requirements
 In order to run this project on your machine you have to install the following packages:
@@ -39,3 +42,7 @@ put inside of your project directory (the directory with the Vagrantfile) from t
 **Remember that if you set `LIV_TUT_NO_BEGIN_SHR_CLEAN=1` (the default value), the init provision shell script will
 delete all the files inside the shared directory. This is done in order to avoid filesystem conflicts. Read the
 comments inside `provision-shell/resources/var.sh` for more details.**
+
+Thank you for cloning!
+
+Bye bye!
