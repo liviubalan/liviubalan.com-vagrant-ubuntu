@@ -69,6 +69,13 @@ LIV_TUT_NO_BEGIN=1
 # Default value: 1
 LIV_TUT_NO_END=1
 
+# Remove all the files inside the shared directory.
+# You may want to change this value in case that you want to use incremental development.
+# Changing this value usually implies changing the values for LIV_TUT_NO_START and LIV_TUT_NO_STOP also.
+# Possible values: 0, 1
+# Default value: 1
+LIV_TUT_NO_BEGIN_SHR_CLEAN=1
+
 # Section provision tutorial message setup
 LIV_TUT_SECTION_NO='Setup for Tutorial '
 
