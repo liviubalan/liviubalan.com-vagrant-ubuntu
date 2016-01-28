@@ -14,10 +14,21 @@ for more details.
 for more details.
 
 ## Installation
-In order to create and configure the VirtualBox guest machine all you have to do is to run
-```bash
-vagrant up --provider virtualbox
-```
+After the Requirements section is checked, open a [console](https://en.wikipedia.org/wiki/Command-line_interface) and
+follow this steps:
+
+1. Clone the GitHub project repository:
+
+ ```bash
+ git clone git@github.com:liviubalan/liviubalan.com-vagrant-ubuntu.git
+ ```
+
+2. Create and configure the VirtualBox guest machine (more info on
+[Vagrant Install ubuntu-precise32 and ubuntu-trusty32 on Linux Mint/Ubuntu Desktop](http://www.liviubalan.com/vagrant-install-ubuntu-precise32-and-ubuntu-trusty32-on-linux-mintubuntu-desktop)):
+
+ ```bash
+ vagrant up --provider virtualbox
+ ```
 
 ## Shared Folders
 In order to access files on your host machine from your guest virtual machine all you need to do is to access the
