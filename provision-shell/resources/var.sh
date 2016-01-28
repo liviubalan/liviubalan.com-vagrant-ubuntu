@@ -38,27 +38,36 @@ LIV_COLOR_DANGER='\e[31m'
 
 # Tutorials
 
-# Tutorial start step from which the provision will begin.
-# You may want to change this value in order to decrease the provision loading time in case that you want to use
-# incremental development.
-# Default value: 0
-LIV_TUT_NO_START=0
-
-# Maximum tutorial step until the provision will be made.
-#
-# If you want just a clean Vagrant VM WITHOUT INIT, CLEANUP or TUTORIAL provision shell scripts set this value to "-2".
-# If you want just a clean Vagrant VM WITH INIT provision shell script and WITHOUT CLEANUP and TUTORIAL provision shell
-# scripts set this value to "-1".
-# If you want just a clean Vagrant VM WITH INIT and CLEANUP provision shell scripts but WITHOUT TUTORIAL shell scripts
-# set this value to "0".
 # Tutorials are numbered starting from "1" and correspond to the # title part from http://www.liviubalan.com/
-#
-# Remember that "vagrant provision" command is useful for incremental development but if decrease this value you may
-# get in some trouble and you will have to use:
+# Remember that "vagrant provision" command is useful for incremental development but for decremental development
+# you may get in some trouble and you will have to use:
 # vagrant destroy -f
 # vagrant up --provider virtualbox
 # For more info see http://www.liviubalan.com/vagrant-provision-command
+
+# Tutorial start step from which the provision will begin.
+# You may want to change this value in order to decrease the provision loading time in case that you want to use
+# incremental development.
+# Default value: 1
+LIV_TUT_NO_START=1
+
+# Maximum tutorial step until the provision will be made.
+# You may want to change this value in order to decrease the provision loading time in case that you want to use
+# incremental development.
+# Default value: last tutorial number
 LIV_TUT_NO_STOP=15
+
+# Run the begin (init) provision shell script.
+# This script will be run before any tutorial provision shell script.
+# Possible values: 0, 1
+# Default value: 1
+LIV_TUT_NO_BEGIN=1
+
+# Run the end (cleanup) provision shell script.
+# This script will be run after all the tutorial provision shell scripts.
+# Possible values: 0, 1
+# Default value: 1
+LIV_TUT_NO_END=1
 
 # Section provision tutorial message setup
 LIV_TUT_SECTION_NO='Setup for Tutorial '
@@ -89,4 +98,5 @@ LIV_TUT_SH_NONE='No provision shell script specified for this tutorial'
 # Run $LIV_TUT_SH_END provision shell script above for the last tutorial.
 # This will apply if your current tutorial number is $LIV_TUT_NO_STOP (the last one).
 # Possible values: 0, 1
-LIV_TUT_SH_END_LAST=1
+# Default value: 0
+LIV_TUT_SH_END_LAST=0

@@ -24,12 +24,21 @@ source "$LIV_DIR_PROVISION/resources/var.sh"
 source "$LIV_DIR_RES/functions.sh"
 
 # Run the init, tutorial and cleanup scripts based on the configuration values
-LIV_N=$(($LIV_TUT_NO_STOP+1))
-for (( LIV_I=$LIV_TUT_NO_START; LIV_I<=$LIV_N; LIV_I++ )) do
-    if [ "$LIV_I" -eq '0' ]; then
+if [ "$LIV_TUT_NO_BEGIN" -eq '1' ]; then
+    LIV_I_START=$(($LIV_TUT_NO_START-1))
+else
+    LIV_I_START=$LIV_TUT_NO_START
+fi
+if [ "$LIV_TUT_NO_END" -eq '1' ]; then
+    LIV_I_STOP=$(($LIV_TUT_NO_STOP+1))
+else
+    LIV_I_STOP=$LIV_TUT_NO_STOP
+fi
+for (( LIV_I=$LIV_I_START; LIV_I<=$LIV_I_STOP; LIV_I++ )) do
+    if [ "$LIV_TUT_NO_BEGIN" -eq '1' ] && [ "$LIV_I" -eq "$LIV_I_START" ]; then
         # Init provision shell script (begin)
         LIV_DIR_SCRIPT_CUR=$(liv_tutorial_path "$LIV_TUT_DIR_BEGIN")
-    elif [ "$LIV_I" -eq "$LIV_N" ]; then
+    elif [ "$LIV_TUT_NO_END" -eq '1' ] && [ "$LIV_I" -eq "$LIV_I_STOP" ]; then
         # Cleanup provision shell script (end)
         LIV_DIR_SCRIPT_CUR=$(liv_tutorial_path "$LIV_TUT_DIR_END")
     else
