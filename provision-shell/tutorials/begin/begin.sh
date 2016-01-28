@@ -52,4 +52,4 @@ sudo dpkg-reconfigure -f noninteractive tzdata > /dev/null 2>&1
 sudo apt-get -qq update
 
 # Remove all files from the shared directory
-sudo rm -rf "$LIV_DIR_SHR/*"
+sudo rm -rf "$LIV_DIR_SHR"/*
