@@ -64,7 +64,7 @@ Most the configuration settings that you want to modify are placed on
 files.
 
 You have a lot of configuration options inside of `provision-shell/resources/var.sh` but the usual values that you
-want to modify are:
+want to change are:
 
 * **LIV_TUT_NO_START**: Tutorial start step from which the provision will begin.
 * **LIV_TUT_NO_STOP**: Maximum tutorial step until the provision will be made.
