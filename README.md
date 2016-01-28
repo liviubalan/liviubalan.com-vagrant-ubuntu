@@ -70,11 +70,11 @@ comments inside `provision-shell/resources/var.sh` for more details.**
 ## Configuration
 
 Most the configuration settings that you want to modify are placed on
-[/Vagrantfile](https://github.com/liviubalan/liviubalan.com-vagrant-ubuntu/blob/master/Vagrantfile) and
-[/provision-shell/resources/var.sh](https://github.com/liviubalan/liviubalan.com-vagrant-ubuntu/blob/master/provision-shell/resources/var.sh)
+[Vagrantfile](https://github.com/liviubalan/liviubalan.com-vagrant-ubuntu/blob/master/Vagrantfile) and
+[provision-shell/resources/var.sh](https://github.com/liviubalan/liviubalan.com-vagrant-ubuntu/blob/master/provision-shell/resources/var.sh)
 files.
 
-You have a lot of configuration options inside of `/provision-shell/resources/var.sh` but the usual values that you
+You have a lot of configuration options inside of `provision-shell/resources/var.sh` but the usual values that you
 want to modify are:
 
 * **LIV_TUT_NO_START**: Tutorial start step from which the provision will begin.
@@ -84,10 +84,10 @@ want to modify are:
 * **LIV_TUT_NO_BEGIN_SHR_CLEAN**: Remove all the files inside the shared directory.
 * **LIV_TUT_SH_END_LAST**: Run tutorial end provision shell script for the last tutorial.
 
-For more info about all the `/provision-shell/resources/var.sh` configuration options check the comments within the
+For more info about all the `provision-shell/resources/var.sh` configuration options check the comments within the
 file.
 
-In order to change the values for `/Vagrantfile` check the
+In order to change the values for `Vagrantfile` check the
 [Vagrantfile documentation](https://www.vagrantup.com/docs/vagrantfile/).
 
 Thank you for cloning!  
