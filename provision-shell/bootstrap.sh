@@ -24,8 +24,8 @@ source "$LIV_DIR_PROVISION/resources/var.sh"
 source "$LIV_DIR_RES/functions.sh"
 
 # Run the init, tutorial and cleanup scripts based on the configuration values
-LIV_N=$(($LIV_TUT_NO+1))
-for (( LIV_I=0; LIV_I<=$LIV_N; LIV_I++ )) do
+LIV_N=$(($LIV_TUT_NO_STOP+1))
+for (( LIV_I=$LIV_TUT_NO_START; LIV_I<=$LIV_N; LIV_I++ )) do
     if [ "$LIV_I" -eq '0' ]; then
         # Init provision shell script (begin)
         LIV_DIR_SCRIPT_CUR=$(liv_tutorial_path "$LIV_TUT_DIR_BEGIN")
@@ -63,7 +63,7 @@ for (( LIV_I=0; LIV_I<=$LIV_N; LIV_I++ )) do
 
             # Load tutorial provision shell script (end)
             # This script is loaded if the tutorial is not the last one or is the last one and LIV_TUT_SH_END_LAST=1
-            if [ -e "$LIV_TUT_SH_END_I" ] && ([ "$LIV_I" -lt "$LIV_TUT_NO" ] || ([ "$LIV_I" -eq "$LIV_TUT_NO" ] && [ "$LIV_TUT_SH_END_LAST" -eq '1' ])); then
+            if [ -e "$LIV_TUT_SH_END_I" ] && ([ "$LIV_I" -lt "$LIV_TUT_NO_STOP" ] || ([ "$LIV_I" -eq "$LIV_TUT_NO_STOP" ] && [ "$LIV_TUT_SH_END_LAST" -eq '1' ])); then
                 source "$LIV_TUT_SH_END_I"
             fi
         else

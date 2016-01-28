@@ -38,6 +38,12 @@ LIV_COLOR_DANGER='\e[31m'
 
 # Tutorials
 
+# Tutorial start step from which the provision will begin.
+# You may want to change this value in order to decrease the provision loading time in case that you want to use
+# incremental development.
+# Default value: 0
+LIV_TUT_NO_START=0
+
 # Maximum tutorial step until the provision will be made.
 #
 # If you want just a clean Vagrant VM WITHOUT INIT, CLEANUP or TUTORIAL provision shell scripts set this value to "-2".
@@ -52,7 +58,7 @@ LIV_COLOR_DANGER='\e[31m'
 # vagrant destroy -f
 # vagrant up --provider virtualbox
 # For more info see http://www.liviubalan.com/vagrant-provision-command
-LIV_TUT_NO=15
+LIV_TUT_NO_STOP=15
 
 # Section provision tutorial message setup
 LIV_TUT_SECTION_NO='Setup for Tutorial '
@@ -81,6 +87,6 @@ LIV_TUT_SH_END='end.sh'
 LIV_TUT_SH_NONE='No provision shell script specified for this tutorial'
 
 # Run $LIV_TUT_SH_END provision shell script above for the last tutorial.
-# This will apply if your current tutorial number is $LIV_TUT_NO (the last one).
+# This will apply if your current tutorial number is $LIV_TUT_NO_STOP (the last one).
 # Possible values: 0, 1
 LIV_TUT_SH_END_LAST=1
