@@ -13,6 +13,12 @@ for more details.
 [Vagrant Install on Linux Mint/Ubuntu Desktop](http://www.liviubalan.com/vagrant-install-on-linux-mintubuntu-desktop)
 for more details.
 
+## Installation
+In order to create and configure the VirtualBox guest machine all you have to do is to run
+```bash
+vagrant up --provider virtualbox
+```
+
 ## Shared Folders
 In order to access files on your host machine from your guest virtual machine all you need to do is to access the
 `share` directory located on the root of the project. Because this project is based on Vagrant, by default, all you
