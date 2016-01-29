@@ -74,6 +74,7 @@ LIV_TUT_NO_END=1
 # Downloads the package lists from the repositories and "updates" them to get information on the newest
 # versions of packages and their dependencies.
 # You may want to change this value in case that you want to use incremental development.
+# In order to apply this option, you have to set "LIV_TUT_NO_BEGIN=1"
 # Possible values: 0, 1
 # Default value: 1
 LIV_TUT_NO_BEGIN_APT_UPDATE=1
@@ -81,6 +82,7 @@ LIV_TUT_NO_BEGIN_APT_UPDATE=1
 # Remove all the files inside the shared directory.
 # You may want to change this value in case that you want to use incremental development.
 # Changing this value usually implies changing the values for LIV_TUT_NO_START and LIV_TUT_NO_STOP also.
+# In order to apply this option, you have to set "LIV_TUT_NO_BEGIN=1"
 # Possible values: 0, 1
 # Default value: 1
 LIV_TUT_NO_BEGIN_SHR_CLEAN=1
