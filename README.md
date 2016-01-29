@@ -70,6 +70,8 @@ want to change are:
 * **LIV_TUT_NO_STOP**: Maximum tutorial step until the provision will be made.
 * **LIV_TUT_NO_BEGIN**: Run the begin (init) provision shell script.
 * **LIV_TUT_NO_END**: Run the end (cleanup) provision shell script.
+* **LIV_TUT_NO_BEGIN_APT_UPDATE**: Downloads the package lists from the repositories and "updates" them to get
+information on the newest versions of packages and their dependencies.
 * **LIV_TUT_NO_BEGIN_SHR_CLEAN**: Remove all the files inside the shared directory.
 * **LIV_TUT_SH_END_LAST**: Run tutorial end provision shell script for the last tutorial.
 
@@ -118,9 +120,10 @@ machine (more info on [Vagrant destroy command](http://www.liviubalan.com/vagran
  ```
 
  You can decrease the provision loading time by using this command and also you can make more teaks by changing the
- **LIV_TUT_NO_BEGIN**, **LIV_TUT_NO_END**, **LIV_TUT_NO_BEGIN_SHR_CLEAN** and **LIV_TUT_SH_END_LAST** configuration
- options above. But remember that you can get in some troubles if you're using decremental development. For more info
- check [Vagrant provision command](http://www.liviubalan.com/vagrant-provision-command).
+ **LIV_TUT_NO_BEGIN**, **LIV_TUT_NO_END**, **LIV_TUT_NO_BEGIN_APT_UPDATE**, **LIV_TUT_NO_BEGIN_SHR_CLEAN** and
+ **LIV_TUT_SH_END_LAST** configuration options above. But remember that you can get in some troubles if you're using
+ decremental development. For more info check
+ [Vagrant provision command](http://www.liviubalan.com/vagrant-provision-command).
 
 Thank you for cloning!  
 Bye bye!
