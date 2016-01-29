@@ -49,7 +49,9 @@ sudo dpkg-reconfigure -f noninteractive tzdata > /dev/null 2>&1
 
 # Downloads the package lists from the repositories and "updates" them to get information on the newest
 # versions of packages and their dependencies
-sudo apt-get -qq update
+if [ "$LIV_TUT_NO_BEGIN_APT_UPDATE" -eq '1' ]; then
+    sudo apt-get -qq update
+fi
 
 # Remove all the files inside the shared directory
 if [ "$LIV_TUT_NO_BEGIN_SHR_CLEAN" -eq '1' ]; then
