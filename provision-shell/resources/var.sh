@@ -19,6 +19,9 @@ LIV_DIR_TUT="$LIV_DIR_PROVISION/tutorials"
 # between the host machine with the guest virtual machine
 LIV_DIR_SHR="$LIV_DIR_ROOT/share"
 
+# Apache2 shared directory
+LIV_DIR_SHR_APACHE="$LIV_DIR_SHR/apache2"
+
 # Colors
 
 # Default message color
