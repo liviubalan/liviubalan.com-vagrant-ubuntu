@@ -59,6 +59,8 @@ LIV_TUT_NO_STOP=15
 
 # Run the begin (init) provision shell script.
 # This script will be run before any tutorial provision shell script.
+# In order to avoid problems is recommended to let the default as is and if you want to decrease the provision loading
+# time you can change the other 'LIV_TUT_NO_*' configuration options.
 # Possible values: 0, 1
 # Default value: 1
 LIV_TUT_NO_BEGIN=1
