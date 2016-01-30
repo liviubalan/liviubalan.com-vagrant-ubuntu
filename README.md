@@ -56,6 +56,17 @@ follow this steps:
  vagrant ssh
  ```
 
+ You can also connect through SSH using other users witch are created by the provisioning shell scripts. For example,
+ you can use:
+ 
+ ```bash
+  ssh liviu@http.liviubalan.com
+  ```
+  More info about the user credentials you can find inside of
+  [provision-shell/resources/var.sh](https://github.com/liviubalan/liviubalan.com-vagrant-ubuntu/blob/master/provision-shell/resources/var.sh).
+  If you want to learn more about SSH key-based authentication, SSH client configuration and more, you can checkout this
+  [SSH tutorials](http://www.liviubalan.com/tag/ssh).
+
 ## Configuration
 
 Most the configuration settings that you want to modify are placed on
