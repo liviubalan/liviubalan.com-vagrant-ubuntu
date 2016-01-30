@@ -57,3 +57,10 @@ fi
 if [ "$LIV_TUT_NO_BEGIN_SHR_CLEAN" -eq '1' ]; then
     sudo rm -rf "$LIV_DIR_SHR"/*
 fi
+
+# Create the user that should be generated on the installation process of Ubuntu Server.
+# Because instead of manually creating the VM this is done by using Vagrant, this user must be explicitly created.
+# For more info see http://www.liviubalan.com/install-ubuntu-14-04-lts-server-on-virtualbox
+sudo useradd -m -s /bin/bash -g www-data -c "$LIV_USR_ADM_NAME" "$LIV_USR_ADM_USER" > /dev/null 2>&1
+sudo bash -c "echo '$LIV_USR_ADM_USER:$LIV_USR_ADM_PWD' | chpasswd" > /dev/null 2>&1
+sudo usermod -a -G 'sudo' "$LIV_USR_ADM_USER"

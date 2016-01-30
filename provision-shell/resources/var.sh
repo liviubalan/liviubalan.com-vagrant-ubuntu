@@ -6,6 +6,20 @@
 
 # Global variables
 
+# User credentials
+
+# The user that should be generated on the installation process of Ubuntu Server.
+# Because instead of manually creating the VM this is done by using Vagrant, this user must be explicitly created.
+# For more info see http://www.liviubalan.com/install-ubuntu-14-04-lts-server-on-virtualbox
+LIV_USR_ADM_USER='liviu'
+
+# Name for $LIV_USR_ADM_USER
+LIV_USR_ADM_NAME='Liviu Balan'
+
+# Password for $LIV_USR_ADM_USER.
+# This password is also used when connecting to the VM through SSH
+LIV_USR_ADM_PWD='pwd-liviu'
+
 # Paths
 
 # Resources directory absolute path
@@ -58,7 +72,7 @@ LIV_TUT_NO_START=1
 # You may want to change this value in order to decrease the provision loading time in case that you want to use
 # incremental development.
 # Default value: last tutorial number
-LIV_TUT_NO_STOP=15
+LIV_TUT_NO_STOP=16
 
 # Run the begin (init) provision shell script.
 # This script will be run before any tutorial provision shell script.
