@@ -56,7 +56,7 @@ follow this steps:
  vagrant ssh
  ```
 
- You can also connect through SSH using other users witch are created by the provisioning shell scripts. For example,
+ You can also connect through SSH using other users witch are created by the provision shell scripts. For example,
  you can use:
  
  ```bash

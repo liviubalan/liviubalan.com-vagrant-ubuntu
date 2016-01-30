@@ -63,4 +63,4 @@ fi
 # For more info see http://www.liviubalan.com/install-ubuntu-14-04-lts-server-on-virtualbox
 sudo useradd -m -s /bin/bash -g www-data -c "$LIV_USR_ADM_NAME" "$LIV_USR_ADM_USER" > /dev/null 2>&1
 sudo bash -c "echo '$LIV_USR_ADM_USER:$LIV_USR_ADM_PWD' | chpasswd" > /dev/null 2>&1
-sudo usermod -a -G 'sudo' "$LIV_USR_ADM_USER"
+sudo usermod -a -G 'sudo' "$LIV_USR_ADM_USER" > /dev/null 2>&1
