@@ -58,6 +58,10 @@ if [ "$LIV_TUT_NO_BEGIN_SHR_CLEAN" -eq '1' ]; then
     sudo rm -rf "$LIV_DIR_SHR"/*
 fi
 
+# Change the default 022 umask to 002 for all new created users.
+# For more info see http://www.liviubalan.com/ubuntu-linux-umask-explained
+sudo sed -i 's/^UMASK\t\t022/UMASK\t\t002/g' /etc/login.defs
+
 # Create the user that should be generated on the installation process of Ubuntu Server.
 # Because instead of manually creating the VM this is done by using Vagrant, this user must be explicitly created.
 # For more info see http://www.liviubalan.com/install-ubuntu-14-04-lts-server-on-virtualbox
