@@ -31,6 +31,9 @@ LIV_USR_WWW_NAME='Liviu Balan'
 # This password is also used when connecting to the VM through SSH
 LIV_USR_WWW_PWD='pwd-liviu.balan'
 
+# Password for root MySQL server
+LIV_USR_MYSQL_ROOT_PWD='pwd-mysql-root'
+
 # Paths
 
 # Resources directory absolute path
@@ -83,7 +86,7 @@ LIV_TUT_NO_START=1
 # You may want to change this value in order to decrease the provision loading time in case that you want to use
 # incremental development.
 # Default value: last tutorial number
-LIV_TUT_NO_STOP=34
+LIV_TUT_NO_STOP=35
 
 # Run the begin (init) provision shell script.
 # This script will be run before any tutorial provision shell script.
