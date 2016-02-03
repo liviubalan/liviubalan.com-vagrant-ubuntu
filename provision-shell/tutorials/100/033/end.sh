@@ -4,9 +4,10 @@
 # For the full copyright and license information, please view the LICENSE
 # file that was distributed with this source code.
 
-# Change "www" directory owner and mode bits in order to be accessed by users from the "www-data" group
-sudo chown www-data:www-data /var/www/
-sudo chmod 775 /var/www/
+# Change "www" directory owner and mode bits in order to be accessed by users from the "www-data" group.
+# Because "/var/www/" points to a Vagrant shared directory changing the file owner do not apply
+#sudo chown www-data:www-data /var/www/
+#sudo chmod 775 /var/www/
 
 # Run commands as other user with default group "www-data"
 # Create directory structure
