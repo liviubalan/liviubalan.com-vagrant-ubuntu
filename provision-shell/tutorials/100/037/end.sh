@@ -6,7 +6,6 @@
 
 # Resolve AH00558 error on service apache2 restart
 if ! grep -q '^ServerName localhost$' /etc/apache2/apache2.conf ; then
-    echo "test"
     sudo bash -c "cat $LIV_DIR_SCRIPT_CUR/resources/apache2.conf >> /etc/apache2/apache2.conf"
 fi
 

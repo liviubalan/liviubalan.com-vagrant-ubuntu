@@ -86,7 +86,7 @@ LIV_TUT_NO_START=1
 # You may want to change this value in order to decrease the provision loading time in case that you want to use
 # incremental development.
 # Default value: last tutorial number
-LIV_TUT_NO_STOP=37
+LIV_TUT_NO_STOP=38
 
 # Run the begin (init) provision shell script.
 # This script will be run before any tutorial provision shell script.

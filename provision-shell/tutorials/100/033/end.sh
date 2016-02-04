@@ -9,14 +9,13 @@
 #sudo chown www-data:www-data /var/www/
 #sudo chmod 775 /var/www/
 
-# Run commands as other user with default group "www-data"
 # Create directory structure
-sudo -H -u liviu.balan bash -c 'mkdir /var/www/http.liviubalan.com > /dev/null 2>&1'
-sudo -H -u liviu.balan bash -c 'mkdir /var/www/liviubalan.ro > /dev/null 2>&1'
+mkdir /var/www/http.liviubalan.com > /dev/null 2>&1
+mkdir /var/www/liviubalan.ro > /dev/null 2>&1
 
 # Create index.html
-sudo -H -u liviu.balan bash -c "cp $LIV_DIR_SCRIPT_CUR/resources/html/http.liviubalan.com/index.html /var/www/http.liviubalan.com/"
-sudo -H -u liviu.balan bash -c "cp $LIV_DIR_SCRIPT_CUR/resources/html/liviubalan.ro/index.html /var/www/liviubalan.ro/"
+cp "$LIV_DIR_SCRIPT_CUR/resources/html/http.liviubalan.com/index.html" /var/www/http.liviubalan.com/
+cp "$LIV_DIR_SCRIPT_CUR/resources/html/liviubalan.ro/index.html" /var/www/liviubalan.ro/
 
 # Create virtual host files
 sudo cp "$LIV_DIR_SCRIPT_CUR/resources/conf/http.liviubalan.com.conf" /etc/apache2/sites-available/http.liviubalan.com.conf
