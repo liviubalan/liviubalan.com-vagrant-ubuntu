@@ -53,6 +53,15 @@ Vagrant.configure(2) do |config|
   #
   #   # Customize the amount of memory on the VM:
   #   vb.memory = "1024"
+  #
+  #   # If you experience network problems you can uncomment this lines.
+  #   # For more info see http://www.liviubalan.com/vagrant-install-ubuntu-precise32-and-ubuntu-trusty32-on-linux-mintubuntu-desktop-inside-virtualbox
+  #   # As of https://github.com/mitchellh/vagrant/issues/3860
+  #   ### Change network card to PCnet-FAST III
+  #   # For NAT adapter
+  #   vb.customize ["modifyvm", :id, "--nictype1", "Am79C973"]
+  #   # For host-only adapter
+  #   vb.customize ["modifyvm", :id, "--nictype2", "Am79C973"]
 
     # Customize the name that appears in the VirtualBox GUI
     # See: Oracle VM VirtualBox Manager
@@ -100,4 +109,7 @@ Vagrant.configure(2) do |config|
   # The hostname the machine should have
   # See: vagrant ssh
   config.vm.hostname = "UbuntuVM"
+
+  # The time in seconds that Vagrant will wait for the machine to boot and be accessible
+  config.vm.boot_timeout = 1800
 end
