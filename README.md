@@ -136,5 +136,15 @@ machine (more info on [Vagrant destroy command](http://www.liviubalan.com/vagran
  decremental development. For more info check
  [Vagrant provision command](http://www.liviubalan.com/vagrant-provision-command).
 
+## Debugging
+
+If you experience problems when using `vagrant up --provider virtualbox` you can change the following value inside
+of your [Vagrantfile](https://github.com/liviubalan/liviubalan.com-vagrant-ubuntu/blob/master/Vagrantfile):
+* **vb.gui**: Display the VirtualBox GUI when booting the machine.
+* **vb.customize ["modifyvm", :id, "--nictype1", "Am79C973"]** and
+**vb.customize ["modifyvm", :id, "--nictype1", "Am79C973"]**: If you experience network problems you can uncomment
+this lines.
+* **config.vm.boot_timeout**: The time in seconds that Vagrant will wait for the machine to boot and be accessible.
+
 Thank you for cloning!  
 Bye bye!
