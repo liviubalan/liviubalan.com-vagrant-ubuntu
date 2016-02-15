@@ -163,7 +163,7 @@ function liv_sed_replace {
     local LIV_TMP_SEARCH=$(liv_sed_escape_search "$1")
     local LIV_TMP_REPLACE=$(liv_sed_escape_replace "$2")
 
-    sed -i "s/$LIV_TMP_SEARCH/$LIV_TMP_REPLACE/g" "$3"
+    sudo sed -i "s/$LIV_TMP_SEARCH/$LIV_TMP_REPLACE/g" "$3"
 }
 
 # Insert $2 (insert string) before $1 (search string) on $3 (file path).
@@ -176,7 +176,7 @@ function liv_sed_insert_before {
     local LIV_TMP_SEARCH=$(liv_sed_escape_search "$1")
     local LIV_TMP_REPLACE=$(liv_sed_escape_replace "$2")
 
-    sed -i "/$LIV_TMP_SEARCH/ i $LIV_TMP_REPLACE" "$3"
+    sudo sed -i "/$LIV_TMP_SEARCH/ i $LIV_TMP_REPLACE" "$3"
 }
 
 # Insert $2 (insert string) after $1 (search string) on $3 (file path).
@@ -189,7 +189,7 @@ function liv_sed_insert_after {
     local LIV_TMP_SEARCH=$(liv_sed_escape_search "$1")
     local LIV_TMP_REPLACE=$(liv_sed_escape_replace "$2")
 
-    sed -i "/$LIV_TMP_SEARCH/ a $LIV_TMP_REPLACE" "$3"
+    sudo sed -i "/$LIV_TMP_SEARCH/ a $LIV_TMP_REPLACE" "$3"
 }
 
 # Remove comment from $1 (search string) inside $3 (file path) based on $2 (comment start format; eg: "#").
@@ -202,5 +202,5 @@ function liv_sed_remove_comment_line {
     local LIV_TMP_COMMENT=$(liv_sed_escape_search "$2")
     local LIV_TMP_REPLACE=$(echo "$1" | sed "s/^\s*$LIV_TMP_COMMENT\s*//")
 
-    sed -i "s/$LIV_TMP_SEARCH/$LIV_TMP_REPLACE/g" "$3"
+    sudo sed -i "s/$LIV_TMP_SEARCH/$LIV_TMP_REPLACE/g" "$3"
 }
