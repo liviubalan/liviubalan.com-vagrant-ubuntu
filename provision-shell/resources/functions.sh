@@ -101,3 +101,106 @@ function liv_tutorial_path {
 
     echo "$LIV_PATH_CUR"
 }
+
+# Escape string used in sed command (search term).
+# For more info see:
+# https://robots.thoughtbot.com/sed-102-replace-in-place
+# http://unix.stackexchange.com/questions/32907/what-characters-do-i-need-to-escape-when-using-sed-in-a-sh-script
+# $1 = The value being searched for, otherwise known as the needle
+function liv_sed_escape_search {
+    local LIV_TMP="$1"
+
+    # Replace "\" first
+    # "\" => "\\"
+    LIV_TMP=$(echo "$LIV_TMP" | sed 's/\\/\\\\/g')
+
+    # "^" => "\^"
+    LIV_TMP=$(echo "$LIV_TMP" | sed 's/\^/\\^/g')
+
+    # "." => "\."
+    LIV_TMP=$(echo "$LIV_TMP" | sed 's/\./\\./g')
+
+    # "*" => "\*"
+    LIV_TMP=$(echo "$LIV_TMP" | sed 's/\*/\\*/g')
+
+    # "[" => "\["
+    LIV_TMP=$(echo "$LIV_TMP" | sed 's/\[/\\[/g')
+
+    # "]" => "\]"
+    LIV_TMP=$(echo "$LIV_TMP" | sed 's/\]/\\]/g')
+
+    # "/" => "\/"
+    LIV_TMP=$(echo "$LIV_TMP" | sed 's/\//\\\//g')
+
+    # "$" => "\$"
+    LIV_TMP=$(echo "$LIV_TMP" | sed 's/\$/\\$/g')
+
+    echo "$LIV_TMP"
+}
+
+# Escape string used in sed command (replace term)
+# $1 = The replacement value that replaces found search values
+function liv_sed_escape_replace {
+    local LIV_TMP="$1"
+
+    # Replace "\" first
+    # "\" => "\\"
+    LIV_TMP=$(echo "$LIV_TMP" | sed 's/\\/\\\\/g')
+
+    # "/" => "\/"
+    LIV_TMP=$(echo "$LIV_TMP" | sed 's/\//\\\//g')
+
+    echo "$LIV_TMP"
+}
+
+# Replace $1 (search string) with $2 (replace string) on $3 (file path).
+# $1 and $2 are escaped so you cannot use patterns inside of them.
+# For more info see https://www.digitalocean.com/community/tutorials/the-basics-of-using-the-sed-stream-editor-to-manipulate-text-in-linux
+# $1 = Search string
+# $2 = Replace string
+# $3 = File path
+function liv_sed_replace {
+    local LIV_TMP_SEARCH=$(liv_sed_escape_search "$1")
+    local LIV_TMP_REPLACE=$(liv_sed_escape_replace "$2")
+
+    sed -i "s/$LIV_TMP_SEARCH/$LIV_TMP_REPLACE/g" "$3"
+}
+
+# Insert $2 (insert string) before $1 (search string) on $3 (file path).
+# $1 and $2 are escaped so you cannot use patterns inside of them.
+# For more info see http://www.thegeekstuff.com/2009/11/unix-sed-tutorial-append-insert-replace-and-count-file-lines/
+# $1 = Search string
+# $2 = Insert string
+# $3 = File path
+function liv_sed_insert_before {
+    local LIV_TMP_SEARCH=$(liv_sed_escape_search "$1")
+    local LIV_TMP_REPLACE=$(liv_sed_escape_replace "$2")
+
+    sed -i "/$LIV_TMP_SEARCH/ i $LIV_TMP_REPLACE" "$3"
+}
+
+# Insert $2 (insert string) after $1 (search string) on $3 (file path).
+# $1 and $2 are escaped so you cannot use patterns inside of them.
+# For more info see http://www.thegeekstuff.com/2009/11/unix-sed-tutorial-append-insert-replace-and-count-file-lines/
+# $1 = Search string
+# $2 = Insert string
+# $3 = File path
+function liv_sed_insert_after {
+    local LIV_TMP_SEARCH=$(liv_sed_escape_search "$1")
+    local LIV_TMP_REPLACE=$(liv_sed_escape_replace "$2")
+
+    sed -i "/$LIV_TMP_SEARCH/ a $LIV_TMP_REPLACE" "$3"
+}
+
+# Remove comment from $1 (search string) inside $3 (file path) based on $2 (comment start format; eg: "#").
+# $1 and $2 are escaped so you cannot use patterns inside of them.
+# $1 = Search string with comment
+# $2 = Comment start format (eg: "#")
+# $3 = File path
+function liv_sed_remove_comment_line {
+    local LIV_TMP_SEARCH=$(liv_sed_escape_search "$1")
+    local LIV_TMP_COMMENT=$(liv_sed_escape_search "$2")
+    local LIV_TMP_REPLACE=$(echo "$1" | sed "s/^\s*$LIV_TMP_COMMENT\s*//")
+
+    sed -i "s/$LIV_TMP_SEARCH/$LIV_TMP_REPLACE/g" "$3"
+}
