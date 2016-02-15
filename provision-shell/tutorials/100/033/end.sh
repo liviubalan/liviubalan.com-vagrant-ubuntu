@@ -13,13 +13,17 @@
 mkdir /var/www/http.liviubalan.com > /dev/null 2>&1
 mkdir /var/www/liviubalan.ro > /dev/null 2>&1
 
+# Clean directories
+rm -rf /var/www/http.liviubalan.com/*
+rm -rf /var/www/liviubalan.ro/*
+
 # Create index.html
-cp "$LIV_DIR_SCRIPT_CUR/resources/html/http.liviubalan.com/index.html" /var/www/http.liviubalan.com/
-cp "$LIV_DIR_SCRIPT_CUR/resources/html/liviubalan.ro/index.html" /var/www/liviubalan.ro/
+cp "$LIV_DIR_SCRIPT_CUR/resources/http.liviubalan.com/html/index.html" /var/www/http.liviubalan.com/
+cp "$LIV_DIR_SCRIPT_CUR/resources/liviubalan.ro/html/index.html" /var/www/liviubalan.ro/
 
 # Create virtual host files
-sudo cp "$LIV_DIR_SCRIPT_CUR/resources/conf/http.liviubalan.com.conf" /etc/apache2/sites-available/http.liviubalan.com.conf
-sudo cp "$LIV_DIR_SCRIPT_CUR/resources/conf/liviubalan.ro.conf" /etc/apache2/sites-available/liviubalan.ro.conf
+sudo cp "$LIV_DIR_SCRIPT_CUR/resources/http.liviubalan.com/apache/http.liviubalan.com.conf" /etc/apache2/sites-available/
+sudo cp "$LIV_DIR_SCRIPT_CUR/resources/liviubalan.ro/apache/liviubalan.ro.conf" /etc/apache2/sites-available/
 
 # Enable the new virtual host files
 sudo a2ensite http.liviubalan.com.conf > /dev/null 2>&1
