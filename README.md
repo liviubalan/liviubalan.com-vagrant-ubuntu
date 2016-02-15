@@ -138,7 +138,7 @@ machine (more info on [Vagrant destroy command](http://www.liviubalan.com/vagran
 
 ## Debugging
 
-If you experience problems when using `vagrant up --provider virtualbox` you can change the following value inside
+If you experience problems when using `vagrant up --provider virtualbox` you can change the following values inside
 of your [Vagrantfile](https://github.com/liviubalan/liviubalan.com-vagrant-ubuntu/blob/master/Vagrantfile):
 * **vb.gui**: Display the VirtualBox GUI when booting the machine.
 * **vb.customize ["modifyvm", :id, "--nictype1", "Am79C973"]** and
