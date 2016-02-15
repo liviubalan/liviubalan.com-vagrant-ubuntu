@@ -179,6 +179,20 @@ function liv_sed_insert_before {
     sudo sed -i "/$LIV_TMP_SEARCH/ i $LIV_TMP_REPLACE" "$3"
 }
 
+# Insert $2 (insert string) before $1 (search string) on $3 (file path) if $2 is not found inside $3.
+# $1 and $2 are escaped so you cannot use patterns inside of them.
+# $1 = Search string
+# $2 = Insert string
+# $3 = File path
+function liv_sed_insert_before_once {
+    echo "$1 $2 $3"
+    local LIV_TMP_REPLACE=$(liv_sed_escape_search "$2")
+
+    if ! grep -q "^$LIV_TMP_REPLACE$" "$3" ; then
+        liv_sed_insert_before "$1" "$2" "$3"
+    fi
+}
+
 # Insert $2 (insert string) after $1 (search string) on $3 (file path).
 # $1 and $2 are escaped so you cannot use patterns inside of them.
 # For more info see http://www.thegeekstuff.com/2009/11/unix-sed-tutorial-append-insert-replace-and-count-file-lines/
@@ -190,6 +204,19 @@ function liv_sed_insert_after {
     local LIV_TMP_REPLACE=$(liv_sed_escape_replace "$2")
 
     sudo sed -i "/$LIV_TMP_SEARCH/ a $LIV_TMP_REPLACE" "$3"
+}
+
+# Insert $2 (insert string) after $1 (search string) on $3 (file path) if $2 is not found inside $3.
+# $1 and $2 are escaped so you cannot use patterns inside of them.
+# $1 = Search string
+# $2 = Insert string
+# $3 = File path
+function liv_sed_insert_after_once {
+    local LIV_TMP_REPLACE=$(liv_sed_escape_search "$2")
+
+    if ! grep -q "^$LIV_TMP_REPLACE$" "$3" ; then
+        liv_sed_insert_after "$1" "$2" "$3"
+    fi
 }
 
 # Remove comment from $1 (search string) inside $3 (file path) based on $2 (comment start format; eg: "#").
