@@ -6,4 +6,4 @@
 
 # PHP script
 rm -rf /var/www/http.liviubalan.com/*
-cp "$LIV_DIR_SCRIPT_CUR/resources/php/http.liviubalan.com/index.php" /var/www/http.liviubalan.com/
+cp "$LIV_DIR_SCRIPT_CUR/resources/http.liviubalan.com/php/index.php" /var/www/http.liviubalan.com/
