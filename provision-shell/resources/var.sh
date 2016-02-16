@@ -34,6 +34,12 @@ LIV_USR_WWW_PWD='pwd-liviu.balan'
 # Password for root MySQL server
 LIV_USR_MYSQL_ROOT_PWD='pwd-mysql-root'
 
+# Regular MySQL user
+LIV_USR_MYSQL_USR_USR='usrmysql'
+
+# Regular MySQL user password
+LIV_USR_MYSQL_USR_PWD='pwd-mysql-usrmysql'
+
 # Paths
 
 # Resources directory absolute path
@@ -86,7 +92,7 @@ LIV_TUT_NO_START=1
 # You may want to change this value in order to decrease the provision loading time in case that you want to use
 # incremental development.
 # Default value: last tutorial number
-LIV_TUT_NO_STOP=39
+LIV_TUT_NO_STOP=40
 
 # Run the begin (init) provision shell script.
 # This script will be run before any tutorial provision shell script.
