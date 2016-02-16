@@ -138,7 +138,8 @@ function liv_sed_escape_search {
     echo "$LIV_TMP"
 }
 
-# Escape string used in sed command (replace term)
+# Escape string used in sed command (replace term).
+# In order to avoid problems avoid using extra new lines before and after the actual text.
 # $1 = The replacement value that replaces found search values
 function liv_sed_escape_replace {
     local LIV_TMP="$1"
@@ -149,6 +150,10 @@ function liv_sed_escape_replace {
 
     # "/" => "\/"
     LIV_TMP=$(echo "$LIV_TMP" | sed 's/\//\\\//g')
+
+    # "\n" => "\\n"
+    # For more info see http://stackoverflow.com/questions/1251999/how-can-i-replace-a-newline-n-using-sed
+    LIV_TMP=$(echo "$LIV_TMP" | sed ':a;N;$!ba;s/\n/\\n/g')
 
     echo "$LIV_TMP"
 }
@@ -185,7 +190,6 @@ function liv_sed_insert_before {
 # $2 = Insert string
 # $3 = File path
 function liv_sed_insert_before_once {
-    echo "$1 $2 $3"
     local LIV_TMP_REPLACE=$(liv_sed_escape_search "$2")
 
     if ! grep -q "^$LIV_TMP_REPLACE$" "$3" ; then
