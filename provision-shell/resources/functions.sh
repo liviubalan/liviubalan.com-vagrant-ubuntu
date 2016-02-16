@@ -160,6 +160,7 @@ function liv_sed_escape_replace {
 
 # Replace $1 (search string) with $2 (replace string) on $3 (file path).
 # $1 and $2 are escaped so you cannot use patterns inside of them.
+# In order to avoid problems the pattern ^$LIV_TMP_SEARCH is used so $1 should contain the beginning of the pattern.
 # For more info see https://www.digitalocean.com/community/tutorials/the-basics-of-using-the-sed-stream-editor-to-manipulate-text-in-linux
 # $1 = Search string
 # $2 = Replace string
@@ -168,7 +169,7 @@ function liv_sed_replace {
     local LIV_TMP_SEARCH=$(liv_sed_escape_search "$1")
     local LIV_TMP_REPLACE=$(liv_sed_escape_replace "$2")
 
-    sudo sed -i "s/$LIV_TMP_SEARCH/$LIV_TMP_REPLACE/g" "$3"
+    sudo sed -i "s/^$LIV_TMP_SEARCH/$LIV_TMP_REPLACE/g" "$3"
 }
 
 # Insert $2 (insert string) before $1 (search string) on $3 (file path).
@@ -221,6 +222,15 @@ function liv_sed_insert_after_once {
     if ! grep -q "^$LIV_TMP_REPLACE$" "$3" ; then
         liv_sed_insert_after "$1" "$2" "$3"
     fi
+}
+
+# Add comment to $1 (search string) inside $3 (file path) based on $2 (comment start format; eg: "#").
+# $1 and $2 are escaped so you cannot use patterns inside of them.
+# $1 = Search string that will be commented
+# $2 = Comment start format (eg: "#")
+# $3 = File path
+function liv_sed_add_comment_line {
+    liv_sed_replace "$1" "$2$1" "$3"
 }
 
 # Remove comment from $1 (search string) inside $3 (file path) based on $2 (comment start format; eg: "#").

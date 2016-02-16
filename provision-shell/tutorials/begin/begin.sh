@@ -40,7 +40,7 @@ sudo locale-gen en_US.UTF-8 > /dev/null 2>&1
 
 # Do not allow client to pass locale environment variables through SSH
 # For more info see http://www.liviubalan.com/vagrant-repair-setting-locale-failed-message-on-ubuntutrusty32
-sudo sed -i 's/^AcceptEnv LANG LC/#AcceptEnv LANG LC/g' /etc/ssh/sshd_config
+liv_sed_add_comment_line 'AcceptEnv LANG LC_*' '#' /etc/ssh/sshd_config
 
 # Change timezone to "Europe/Bucharest" according to http://www.liviubalan.com/install-ubuntu-14-04-lts-server-on-virtualbox
 # For more info see http://www.liviubalan.com/ubuntu-server-change-and-overview-timezone
@@ -60,7 +60,7 @@ fi
 
 # Change the default 022 umask to 002 for all new created users.
 # For more info see http://www.liviubalan.com/ubuntu-linux-umask-explained
-sudo sed -i 's/^UMASK\t\t022/UMASK\t\t002/g' /etc/login.defs
+liv_sed_replace 'UMASK		022' 'UMASK		002' /etc/login.defs
 
 # Create the user that should be generated on the installation process of Ubuntu Server.
 # Because instead of manually creating the VM this is done by using Vagrant, this user must be explicitly created.
