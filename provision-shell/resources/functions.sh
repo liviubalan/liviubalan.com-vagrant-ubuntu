@@ -245,3 +245,19 @@ function liv_sed_remove_comment_line {
 
     sudo sed -i "s/$LIV_TMP_SEARCH/$LIV_TMP_REPLACE/g" "$3"
 }
+
+# Check if $1 (package name) is installed
+# $1 = Package name
+function liv_package_installed {
+    # For more info see
+    # http://www.cyberciti.biz/faq/find-out-if-package-is-installed-in-linux/
+    # http://stackoverflow.com/questions/25348142/hide-error-message-in-bash
+    local LIV_TMP_STATUS=$(dpkg-query -W -f '${Status}\n' "$1" 2>/dev/null)
+
+    # For more info see http://www.tldp.org/LDP/abs/html/comparison-ops.html
+    if [ "$LIV_TMP_STATUS" = 'install ok installed' ]; then
+        echo '1'
+    else
+        echo '0'
+    fi
+}
