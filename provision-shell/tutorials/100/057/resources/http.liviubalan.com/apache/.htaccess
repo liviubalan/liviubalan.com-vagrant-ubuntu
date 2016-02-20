@@ -1,0 +1,2 @@
+RewriteEngine on
+RewriteRule ^oranges.html$ apples.html
