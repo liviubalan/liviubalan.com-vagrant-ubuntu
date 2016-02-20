@@ -72,7 +72,7 @@ for (( LIV_I=$LIV_I_START; LIV_I<=$LIV_I_STOP; LIV_I++ )) do
 
             # Load tutorial provision shell script (end)
             # This script is loaded if the tutorial is not the last one or is the last one and LIV_TUT_SH_END_LAST=1
-            if [ -e "$LIV_TUT_SH_END_I" ] && ([ "$LIV_I" -lt "$LIV_TUT_NO_STOP" ] || ([ "$LIV_I" -eq "$LIV_TUT_NO_STOP" ] && [ "$LIV_TUT_SH_END_LAST" -eq '1' ])); then
+            if [ -e "$LIV_TUT_SH_END_I" ] && ([ "$LIV_I" -lt "$LIV_TUT_NO_STOP" ] || ([ "$LIV_I" -eq "$LIV_TUT_NO_STOP" ] && [ "$LIV_TUT_SH_END_LAST" -eq '1' ]) || ([ "$LIV_I" -eq "$LIV_I_STOP" ] && [ "$LIV_TUT_NO_END" -eq '1' ])); then
                 source "$LIV_TUT_SH_END_I"
             fi
         else
