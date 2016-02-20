@@ -40,6 +40,20 @@ LIV_USR_MYSQL_USR_USR='usrmysql'
 # Regular MySQL user password
 LIV_USR_MYSQL_USR_PWD='pwd-mysql-usrmysql'
 
+# WordPress admin user
+LIV_USR_WP_USR='liviu.balan'
+
+# Email for $LIV_USR_WP_USR
+LIV_USR_WP_MAIL='liv_romania@yahoo.com'
+
+# Password for $LIV_USR_WP_USR
+LIV_USR_WP_PWD='pwd-wp-liviu.balan'
+
+# Databases
+
+# WordPress
+LIV_MYSQL_DB_WP='wordpress'
+
 # Paths
 
 # Resources directory absolute path
@@ -92,7 +106,7 @@ LIV_TUT_NO_START=1
 # You may want to change this value in order to decrease the provision loading time in case that you want to use
 # incremental development.
 # Default value: last tutorial number
-LIV_TUT_NO_STOP=54
+LIV_TUT_NO_STOP=55
 
 # Run the begin (init) provision shell script.
 # This script will be run before any tutorial provision shell script.
