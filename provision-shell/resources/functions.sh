@@ -161,6 +161,7 @@ function liv_sed_escape_replace {
 # Replace $1 (search string) with $2 (replace string) on $3 (file path).
 # $1 and $2 are escaped so you cannot use patterns inside of them.
 # In order to avoid problems the pattern ^$LIV_TMP_SEARCH is used so $1 should contain the beginning of the pattern.
+# In order to avoid problems avoid using extra new lines before and after the actual text.
 # For more info see https://www.digitalocean.com/community/tutorials/the-basics-of-using-the-sed-stream-editor-to-manipulate-text-in-linux
 # $1 = Search string
 # $2 = Replace string
