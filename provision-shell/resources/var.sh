@@ -40,6 +40,12 @@ LIV_USR_MYSQL_USR_USR='usrmysql'
 # Regular MySQL user password
 LIV_USR_MYSQL_USR_PWD='pwd-mysql-usrmysql'
 
+# Git user.email
+LIV_USR_GIT_MAIL='liv_romania@yahoo.com'
+
+# Git user.name
+LIV_USR_GIT_NAME='Liviu Balan'
+
 # WordPress admin user
 LIV_USR_WP_USR='liviu.balan'
 
@@ -106,7 +112,7 @@ LIV_TUT_NO_START=1
 # You may want to change this value in order to decrease the provision loading time in case that you want to use
 # incremental development.
 # Default value: last tutorial number
-LIV_TUT_NO_STOP=62
+LIV_TUT_NO_STOP=63
 
 # Run the begin (init) provision shell script.
 # This script will be run before any tutorial provision shell script.
