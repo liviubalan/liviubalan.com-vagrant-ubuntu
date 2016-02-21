@@ -225,6 +225,19 @@ function liv_sed_insert_after_once {
     fi
 }
 
+# Insert $1 (insert string) at the end of $2 (file path) if $1 is not found inside $2.
+# $1 is escaped so you cannot use patterns inside of it.
+# $1 = Insert string
+# $2 = File path
+function liv_sed_insert_end_once {
+    local LIV_TMP_REPLACE=$(liv_sed_escape_search "$1")
+
+    if ! grep -q "^$LIV_TMP_REPLACE$" "$2" ; then
+        echo '' >> "$2"
+        echo "$1" >> "$2"
+    fi
+}
+
 # Add comment to $1 (search string) inside $3 (file path) based on $2 (comment start format; eg: "#").
 # $1 and $2 are escaped so you cannot use patterns inside of them.
 # $1 = Search string that will be commented
