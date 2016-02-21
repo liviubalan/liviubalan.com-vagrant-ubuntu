@@ -33,7 +33,8 @@ sudo mv ~/wp-cli.phar /usr/local/bin/wp
 
 # Tab completions
 wget -O ~/.wp-completion.bash https://raw.githubusercontent.com/wp-cli/wp-cli/master/utils/wp-completion.bash > /dev/null 2>&1
-echo "source ~/.wp-completion.bash" > ~/.bash_profile
+LIV_TMP=$(cat "$LIV_DIR_SCRIPT_CUR/resources/vagrant/bash/.bash_profile")
+echo "$LIV_TMP" > ~/.bash_profile
 
 cd /var/www/wp.liviubalan.com/
 
