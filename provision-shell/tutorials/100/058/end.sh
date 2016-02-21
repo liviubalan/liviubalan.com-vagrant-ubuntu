@@ -7,4 +7,4 @@
 cd /var/www/wp.liviubalan.com/
 
 # Update an option
-wp option update 'permalink_structure' '/%postname%/'
+wp option update 'permalink_structure' '/%postname%/' > /dev/null 2>&1

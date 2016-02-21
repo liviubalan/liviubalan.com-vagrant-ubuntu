@@ -45,4 +45,4 @@ wp core download > /dev/null 2>&1
 wp core config --dbname="$LIV_MYSQL_DB_WP" --dbuser="$LIV_USR_MYSQL_USR_USR" --dbpass="$LIV_USR_MYSQL_USR_PWD" --dbhost="localhost" > /dev/null 2>&1
 
 # Create the WordPress tables in the database
-wp core install --url="http://wp.liviubalan.com" --title="Liviu Balan WP" --admin_user="$LIV_USR_WP_USR" --admin_password="$LIV_USR_WP_PWD" --admin_email="$LIV_USR_WP_MAIL" --skip-email
+wp core install --url="http://wp.liviubalan.com" --title="Liviu Balan WP" --admin_user="$LIV_USR_WP_USR" --admin_password="$LIV_USR_WP_PWD" --admin_email="$LIV_USR_WP_MAIL" --skip-email > /dev/null 2>&1
