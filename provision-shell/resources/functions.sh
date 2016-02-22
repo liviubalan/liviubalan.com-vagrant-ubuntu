@@ -139,7 +139,7 @@ function liv_sed_escape_search {
 }
 
 # Escape string used in sed command (replace term).
-# In order to avoid problems avoid using extra new lines before and after the actual text.
+# In order to avoid problems do not use empty new lines.
 # $1 = The replacement value that replaces found search values
 function liv_sed_escape_replace {
     local LIV_TMP="$1"
