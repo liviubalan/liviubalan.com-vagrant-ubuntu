@@ -68,14 +68,14 @@ function liv_is_int {
     fi
 }
 
-# Get the smallest number which is greater than or equal to $1 and is a multiple by $2
+# Get the smallest number which is greater than $1 and is a multiple by $2
 # $1 = Current number
 # $2 = Multiple
 function liv_smallest_multiple {
-    local LIV_I=100
+    local LIV_I=$2
 
-    while [ $1 -gt $LIV_I ]; do
-        LIV_I=$[LIV_I + 100]
+    while [ $1 -ge $LIV_I ]; do
+        LIV_I=$[LIV_I + $2]
     done
 
     echo "$LIV_I"
@@ -84,16 +84,20 @@ function liv_smallest_multiple {
 # Get tutorial path.
 # This current file system structure is used in order to avoid sorting problems.
 # Currently a 3 digits format is used. If you want to increase the number of digits all you have to do is to
-# change the 2nd param for liv_smallest_multiple function and the 1st param for printf function used below.
+# change the $LIV_DIGIT used below.
 # $1 = Tutorial number / directory name
 function liv_tutorial_path {
+    local LIV_MULTIPLE=100
+    local LIV_DIGIT=3
     local LIV_PATH_CUR="$LIV_DIR_TUT"
     local LIV_TMP_CUR=''
 
     if [ $(liv_is_int "$1") = true ]; then
-        LIV_TMP_CUR=$(liv_smallest_multiple $1 100)
+        LIV_TMP_CUR=$(liv_smallest_multiple $1 $LIV_MULTIPLE)
+        LIV_TMP_CUR=$[LIV_TMP_CUR - $LIV_MULTIPLE]
+        LIV_TMP_CUR=$(printf '%0'"$LIV_DIGIT"'d' $LIV_TMP_CUR)
         LIV_PATH_CUR="$LIV_PATH_CUR/$LIV_TMP_CUR"
-        LIV_TMP_CUR=$(printf '%03d' $1)
+        LIV_TMP_CUR=$(printf '%0'""$LIV_DIGIT""'d' $1)
         LIV_PATH_CUR="$LIV_PATH_CUR/$LIV_TMP_CUR"
     else
         LIV_PATH_CUR="$LIV_PATH_CUR/$1"
