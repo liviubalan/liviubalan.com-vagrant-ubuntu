@@ -86,7 +86,7 @@ LIV_DIR_TUT="$LIV_DIR_PROVISION/tutorials"
 LIV_DIR_SHR="$LIV_DIR_ROOT/share"
 
 # Apache2 shared directory
-LIV_DIR_SHR_APACHE="$LIV_DIR_SHR/apache2"
+LIV_DIR_SHR_APACHE="$LIV_DIR_SHR/apache"
 
 # Colors
 
